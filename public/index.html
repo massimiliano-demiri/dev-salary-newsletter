@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Le 50 aziende che pagano meglio gli sviluppatori in Italia</title>
-<meta name="description" content="Una lista gratuita: chi paga bene gli sviluppatori e assume anche dall'Italia. Dimmi dove mandartela." />
-<meta property="og:title" content="Le 50 aziende che pagano meglio gli sviluppatori" />
-<meta property="og:description" content="Lista gratuita con stipendi reali e chi assume dall'Italia. Te la mando via email." />
+<title>Le aziende nascoste che pagano meglio gli sviluppatori (alcune in italiano)</title>
+<meta name="description" content="Una lista gratuita di aziende sotto traccia che pagano bene gli sviluppatori e assumono dall'Italia. Alcune lavorano in italiano. Dimmi dove mandartela." />
+<meta property="og:title" content="Le aziende nascoste che pagano meglio gli sviluppatori" />
+<meta property="og:description" content="Aziende sotto il radar che pagano bene e assumono dall'Italia, alcune in italiano. Te la mando via email, gratis." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,20 +27,17 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .wrap{max-width:680px;margin:0 auto;padding:0 22px}
 a{color:inherit}
-
 nav{border-bottom:1px solid var(--line)}
 .nav-in{max-width:680px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{font-family:var(--serif);font-size:23px;letter-spacing:.2px}
 .brand b{color:var(--accent);font-style:italic;font-weight:400}
 .nav-link{font-size:14px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:1px}
 .nav-link:hover{color:var(--ink)}
-
 .eyebrow{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.02em}
 header.hero{padding:60px 0 48px}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,7.5vw,62px);line-height:1.04;letter-spacing:-.01em;margin-top:14px}
 h1 em{font-style:italic;color:var(--accent)}
 .lede{color:var(--muted);font-size:19px;margin-top:20px;max-width:34em}
-
 .form{margin-top:30px;max-width:480px}
 .flabel{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:9px}
 .field{display:flex;gap:9px}
@@ -59,11 +56,9 @@ h1 em{font-style:italic;color:var(--accent)}
 .msg{display:none;margin-top:13px;padding:12px 14px;border-radius:var(--rs);font-size:14px}
 .msg.ok{display:block;background:#eef7ef;color:#2f7d39;border:1px solid #cfe6d2}
 .msg.err{display:block;background:#fdeeee;color:#c0392b;border:1px solid #f3d2d0}
-
 section{padding:54px 0;border-top:1px solid var(--line)}
 .stitle{font-family:var(--serif);font-size:clamp(26px,4.5vw,34px);font-weight:400;letter-spacing:-.01em;line-height:1.1}
 .ssub{color:var(--muted);font-size:16px;margin-top:12px}
-
 .preview{margin-top:26px;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;background:var(--surface)}
 .ptop{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
 .ptop b{color:var(--ink);font-weight:600}
@@ -76,19 +71,18 @@ table.ltbl tr:last-child td{border-bottom:0}
 .co small{display:block;color:var(--faint);font-weight:400;font-size:12px;margin-top:1px}
 .range{font-family:var(--mono);color:var(--ink);font-weight:600;white-space:nowrap}
 .badge{font-size:11px;color:var(--muted);border:1px solid var(--line2);border-radius:6px;padding:2px 7px;white-space:nowrap}
+.badge.it{color:var(--accent-d);border-color:#eccabf;background:var(--accent-soft)}
 .locked{position:relative}
 .locked .ltbl{filter:blur(6px);opacity:.6;user-select:none;pointer-events:none}
 .lock-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:11px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(255,255,255,.93))}
 .lock-ov h4{font-family:var(--serif);font-size:22px;font-weight:400}
 .lock-ov p{font-size:13.5px;color:var(--muted);max-width:32em}
 .pnote{font-size:12.5px;color:var(--faint);margin-top:13px}
-
 .story{font-size:18px;line-height:1.75;color:var(--muted);display:flex;flex-direction:column;gap:15px}
 .story b{color:var(--ink);font-weight:600}
 .story .last{color:var(--ink)}
 .sig{margin-top:20px;font-size:14px;color:var(--muted)}
 .sig b{color:var(--ink)}
-
 .faq{display:flex;flex-direction:column;gap:9px;margin-top:24px}
 details{border:1px solid var(--line);border-radius:var(--rs);background:var(--surface);overflow:hidden}
 details[open]{border-color:var(--line2)}
@@ -97,14 +91,12 @@ summary::-webkit-details-marker{display:none}
 summary .pm{color:var(--accent);font-weight:400;font-size:20px;line-height:1}
 details[open] summary .pm{transform:rotate(45deg)}
 .ans{padding:0 17px 16px;color:var(--muted);font-size:14.5px}
-
 .final .stitle{margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-size:13px}
 .foot-in{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between}
 .foot-links{display:flex;gap:16px;flex-wrap:wrap}
 .foot-links a{color:var(--faint);text-decoration:none}
 .foot-links a:hover{color:var(--muted)}
-
 .fade{animation:fade .6s ease both}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.fade{animation:none}}
@@ -121,9 +113,9 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
 
 <header class="hero">
   <div class="wrap fade" id="prendila">
-    <div class="eyebrow">Lista gratuita · sviluppatori in Italia</div>
-    <h1>Quanto pagano, <em>davvero</em>, gli sviluppatori?</h1>
-    <p class="lede">Ho messo insieme le 50 aziende che pagano meglio e assumono anche dall'Italia, in full remote. Dimmi dove mandartela e te la passo. Gratis, senza fronzoli.</p>
+    <div class="eyebrow">Lista gratuita · 50 aziende sotto il radar</div>
+    <h1>Le aziende che pagano bene i dev <em>non le trovi</em> su Google.</h1>
+    <p class="lede">Assumono in sordina, passano per referral, alcune ti fanno lavorare anche in italiano — e da solo non le scoveresti. Le ho raccolte: 50, ordinate per stipendio, tutte aperte a chi vive in Italia. Dimmi dove mandartela e te la passo, gratis.</p>
 
     <form class="form js-form" novalidate>
       <div class="flabel">Dove te la mando?</div>
@@ -143,7 +135,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
 <section>
   <div class="wrap">
     <div class="stitle">Un assaggio</div>
-    <p class="ssub">Le prime quattro sono qui. Le altre 46 — con nome e link per candidarti — te le mando.</p>
+    <p class="ssub">Roba che non spunta cercando "lavoro sviluppatore". Le prime quattro qui, le altre 46 — con nome e link — te le mando.</p>
 
     <div class="preview">
       <div class="ptop"><span><b>Top 50</b> · ordinata per stipendio</span><span>aggiornata a mano</span></div>
@@ -153,7 +145,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
           <tr><td class="rk">01</td><td class="co">Dev tools <small>USA</small></td><td>Senior Backend</td><td class="range">90–120k $</td><td><span class="badge">Remote da IT</span></td></tr>
           <tr><td class="rk">02</td><td class="co">Product studio <small>USA</small></td><td>Senior Frontend</td><td class="range">75–100k $</td><td><span class="badge">Contractor</span></td></tr>
           <tr><td class="rk">03</td><td class="co">Infra company <small>EU</small></td><td>DevOps / SRE</td><td class="range">72–90k €</td><td><span class="badge">Full remote</span></td></tr>
-          <tr><td class="rk">04</td><td class="co">Fintech <small>Londra</small></td><td>Backend Engineer</td><td class="range">65–85k €</td><td><span class="badge">Remote da IT</span></td></tr>
+          <tr><td class="rk">04</td><td class="co">SaaS prodotto <small>Italia / EU</small></td><td>Backend Engineer</td><td class="range">55–72k €</td><td><span class="badge it">in italiano</span></td></tr>
         </tbody>
       </table>
       <div class="locked">
@@ -162,7 +154,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
             <tr><td class="rk">05</td><td class="co">SaaS B2B · Berlino</td><td>Fullstack · Mid</td><td class="range">52–68k €</td><td><span class="badge">Full remote</span></td></tr>
             <tr><td class="rk">06</td><td class="co">Scale-up · Amsterdam</td><td>Data Engineer</td><td class="range">60–80k €</td><td><span class="badge">Hybrid</span></td></tr>
             <tr><td class="rk">07</td><td class="co">Mobile · Nordics</td><td>iOS Engineer</td><td class="range">58–75k €</td><td><span class="badge">Full remote</span></td></tr>
-            <tr><td class="rk">08</td><td class="co">Agenzia · IT</td><td>Fullstack · Senior</td><td class="range">50–65k €</td><td><span class="badge">Remote IT</span></td></tr>
+            <tr><td class="rk">08</td><td class="co">Agenzia prodotto · IT</td><td>Fullstack · Senior</td><td class="range">50–65k €</td><td><span class="badge it">in italiano</span></td></tr>
           </tbody>
         </table>
         <div class="lock-ov">
@@ -172,7 +164,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
         </div>
       </div>
     </div>
-    <p class="pnote">Cifre lorde annue indicative, controllate una per una. Dove un dato è incerto, lo scrivo.</p>
+    <p class="pnote">Cifre lorde annue indicative, controllate una per una. Il tag «in italiano» = niente colloqui o lavoro in inglese.</p>
   </div>
 </section>
 
@@ -180,9 +172,9 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
   <div class="wrap">
     <div class="stitle">Perché te la regalo</div>
     <div class="story" style="margin-top:20px">
-      <p>Sarò onesto: non sono un filantropo. Per un paio d'anni ho lavorato a <b>[1.400€ al mese]</b> pensando fosse normale, finché ho scoperto che uno con il mio stesso ruolo, a trenta chilometri da me, ne prendeva <b>il doppio</b> — da remoto, per un'azienda estera.</p>
-      <p>Non era più bravo. Sapeva solo una cosa che io non sapevo: chi paga davvero. Mi sono rotto le scatole del fatto che certi numeri li conosca solo chi è già nel giro.</p>
-      <p class="last">Così ho iniziato a segnarmeli. Questa lista è quel file. La giro gratis perché copiarla non mi costa niente, e a me sarebbe servita due anni fa.</p>
+      <p>Sarò onesto: non sono un filantropo. Per un paio d'anni ho lavorato a <b>[1.400€ al mese]</b> pensando fosse normale, finché ho scoperto che uno con il mio stesso ruolo, a trenta chilometri da me, ne prendeva <b>il doppio</b> — da remoto, per un'azienda di cui non avevo mai sentito il nome.</p>
+      <p>Non era più bravo. Sapeva solo dove guardare. Mi sono rotto le scatole del fatto che le aziende migliori si nascondano, e che certi numeri li conosca solo chi è già nel giro giusto.</p>
+      <p class="last">Così ho iniziato a segnarmele, una per una. Questa lista è quel file. La giro gratis perché copiarla non mi costa niente, e a me sarebbe servita due anni fa.</p>
     </div>
     <p class="sig">— <b>[Il tuo nome]</b></p>
   </div>
@@ -201,6 +193,10 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
         <div class="ans">Da annunci reali, posizioni aperte e dalla mia esperienza. Sono range indicativi, controllati prima di metterli.</div>
       </details>
       <details>
+        <summary>Perché non le trovo da solo?<span class="pm">+</span></summary>
+        <div class="ans">Perché non fanno rumore: assumono senza grandi annunci, non stanno in cima alle solite bacheche e spesso vanno per referral. Alcune lavorano in italiano, quindi niente colloqui in inglese. Scovarle richiede tempo — io quel tempo l'ho già speso.</div>
+      </details>
+      <details>
         <summary>E se voglio togliermi?<span class="pm">+</span></summary>
         <div class="ans">Un click e sei fuori. La tua email non finisce da nessun'altra parte.</div>
       </details>
@@ -211,7 +207,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-s
 <section class="final">
   <div class="wrap fade">
     <div class="stitle">Allora, te la mando?</div>
-    <p class="ssub">Dieci secondi adesso. Poi sai esattamente quanto puoi chiedere.</p>
+    <p class="ssub">Dieci secondi adesso. Poi sai dove cercare — e quanto puoi chiedere.</p>
     <form class="form js-form" novalidate>
       <div class="field">
         <input type="email" name="email" placeholder="la-tua@email.it" required autocomplete="email" />
