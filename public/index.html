@@ -3,297 +3,223 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Le 50 aziende che pagano meglio gli sviluppatori (e assumono dall'Italia)</title>
-<meta name="description" content="La classifica gratuita: ruoli, range di stipendio reali e chi assume sviluppatori anche in full remote dall'estero, restando in Italia." />
+<title>Le 50 aziende che pagano meglio gli sviluppatori in Italia</title>
+<meta name="description" content="Una lista gratuita: chi paga bene gli sviluppatori e assume anche dall'Italia. Dimmi dove mandartela." />
 <meta property="og:title" content="Le 50 aziende che pagano meglio gli sviluppatori" />
-<meta property="og:description" content="Classifica gratuita con ruoli, stipendi reali e chi assume dall'Italia. Scaricala in 10 secondi." />
+<meta property="og:description" content="Lista gratuita con stipendi reali e chi assume dall'Italia. Te la mando via email." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#07080b; --bg2:#0b0d12; --surface:#101319; --surface2:#141821;
-  --border:#1c212b; --border2:#262d39;
-  --fg:#e8eaf0; --muted:#8b93a3; --faint:#5d6573;
-  --accent:#4f8cff; --accent-d:#3b74e6; --teal:#5eead4;
-  --r:16px; --rs:10px;
-  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-  --max:1080px;
+  --paper:#faf8f4; --surface:#ffffff;
+  --ink:#1c1b18; --muted:#6d6a63; --faint:#a29e95;
+  --line:#ece9e2; --line2:#ddd9cf;
+  --accent:#d2553a; --accent-d:#bb4830; --accent-soft:#fbeee9;
+  --r:14px; --rs:10px;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1100px 600px at 50% -10%,rgba(79,140,255,.16),transparent 60%),radial-gradient(800px 500px at 90% 10%,rgba(94,234,212,.06),transparent 55%)}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
 a{color:inherit}
-.mono{font-family:var(--mono)}
 
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(7,8,11,.66);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
-.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;font-size:17px}
-.brand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--teal));display:grid;place-items:center}
-.brand .dot svg{width:13px;height:13px;color:#04121f}
-.nav-cta{font-size:14px;font-weight:600;padding:9px 16px;border-radius:9px;background:var(--fg);color:#0a0c10;text-decoration:none;transition:.15s}
-.nav-cta:hover{opacity:.88}
+nav{border-bottom:1px solid var(--line)}
+.nav-in{max-width:680px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--serif);font-size:23px;letter-spacing:.2px}
+.brand b{color:var(--accent);font-style:italic;font-weight:400}
+.nav-link{font-size:14px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:1px}
+.nav-link:hover{color:var(--ink)}
 
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border2);background:var(--surface);padding:6px 13px;border-radius:999px}
-.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,234,212,.5)}70%{box-shadow:0 0 0 7px rgba(94,234,212,0)}100%{box-shadow:0 0 0 0 rgba(94,234,212,0)}}
-header.hero{padding:74px 0 56px;text-align:center}
-h1{font-size:clamp(32px,6vw,56px);line-height:1.07;letter-spacing:-.03em;font-weight:800;max-width:17ch;margin:22px auto 0}
-h1 .g{background:linear-gradient(120deg,var(--accent),var(--teal));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.lede{color:var(--muted);font-size:clamp(16px,2.4vw,19px);max-width:56ch;margin:22px auto 0}
-.trust-row{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:18px;color:var(--faint);font-size:13px}
-.trust-row span{display:inline-flex;align-items:center;gap:6px}
-.trust-row svg{width:14px;height:14px;color:var(--teal)}
+.eyebrow{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.02em}
+header.hero{padding:60px 0 48px}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,7.5vw,62px);line-height:1.04;letter-spacing:-.01em;margin-top:14px}
+h1 em{font-style:italic;color:var(--accent)}
+.lede{color:var(--muted);font-size:19px;margin-top:20px;max-width:34em}
 
-.form{max-width:500px;margin:30px auto 0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:18px;text-align:left;box-shadow:0 24px 60px -28px rgba(0,0,0,.7)}
-.form .flabel{font-size:13px;color:var(--muted);margin-bottom:9px;font-weight:500}
+.form{margin-top:30px;max-width:480px}
+.flabel{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:9px}
 .field{display:flex;gap:9px}
-@media(max-width:540px){.field{flex-direction:column}}
-.field input[type=email]{flex:1;padding:14px 15px;border-radius:var(--rs);border:1px solid var(--border2);background:#0a0c11;color:var(--fg);font-size:16px;font-family:inherit;transition:.15s}
+@media(max-width:520px){.field{flex-direction:column}}
+.field input[type=email]{flex:1;padding:14px 15px;border-radius:var(--rs);border:1px solid var(--line2);background:var(--surface);color:var(--ink);font-size:16px;font-family:inherit;transition:.15s}
 .field input[type=email]::placeholder{color:var(--faint)}
-.field input[type=email]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,140,255,.18)}
-.btn{white-space:nowrap;padding:14px 22px;border:0;border-radius:var(--rs);background:linear-gradient(135deg,var(--accent),var(--accent-d));color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:8px;justify-content:center}
-.btn svg{width:16px;height:16px}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(79,140,255,.7)}
-.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
-.consent{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--faint);margin-top:13px;line-height:1.45}
+.field input[type=email]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.btn{white-space:nowrap;padding:14px 22px;border:0;border-radius:var(--rs);background:var(--accent);color:#fff;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:.15s}
+.btn:hover{background:var(--accent-d)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--faint);margin-top:13px;line-height:1.5}
 .consent input{margin-top:2px;accent-color:var(--accent);width:15px;height:15px;flex:0 0 auto}
 .consent a{color:var(--muted);text-decoration:underline}
+.reassure{font-size:13px;color:var(--faint);margin-top:14px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.msg{display:none;margin-top:12px;padding:12px 14px;border-radius:var(--rs);font-size:14px}
-.msg.ok{display:flex;gap:9px;align-items:center;background:rgba(94,234,212,.1);color:var(--teal);border:1px solid rgba(94,234,212,.4)}
-.msg.err{display:flex;gap:9px;align-items:center;background:rgba(255,107,107,.1);color:#ff8585;border:1px solid rgba(255,107,107,.4)}
-.msg svg{width:17px;height:17px;flex:0 0 auto}
+.msg{display:none;margin-top:13px;padding:12px 14px;border-radius:var(--rs);font-size:14px}
+.msg.ok{display:block;background:#eef7ef;color:#2f7d39;border:1px solid #cfe6d2}
+.msg.err{display:block;background:#fdeeee;color:#c0392b;border:1px solid #f3d2d0}
 
-section{padding:72px 0;border-top:1px solid var(--border)}
-.shead{max-width:62ch;margin:0 auto 40px;text-align:center}
-.shead h2{font-size:clamp(25px,4vw,36px);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin-top:14px}
-.shead p{color:var(--muted);margin-top:14px;font-size:16.5px}
+section{padding:54px 0;border-top:1px solid var(--line)}
+.stitle{font-family:var(--serif);font-size:clamp(26px,4.5vw,34px);font-weight:400;letter-spacing:-.01em;line-height:1.1}
+.ssub{color:var(--muted);font-size:16px;margin-top:12px}
 
-.grid{display:grid;gap:18px}
-@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px;transition:.18s}
-.card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.ico{width:42px;height:42px;border-radius:11px;background:var(--surface2);border:1px solid var(--border2);display:grid;place-items:center;margin-bottom:16px}
-.ico svg{width:21px;height:21px;color:var(--accent)}
-.card h3{font-size:17.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
-.card p{color:var(--muted);font-size:14.5px}
-
-.preview{max-width:780px;margin:0 auto;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;background:var(--surface)}
-.ptop{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
-.ptop .tag{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--fg)}
-.ptop .tag svg{width:15px;height:15px;color:var(--teal)}
+.preview{margin-top:26px;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.ptop{display:flex;align-items:center;justify-content:space-between;padding:13px 17px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.ptop b{color:var(--ink);font-weight:600}
 table.ltbl{width:100%;border-collapse:collapse;font-size:14px}
-table.ltbl th{text-align:left;padding:13px 16px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1px solid var(--border)}
-table.ltbl td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:middle}
+table.ltbl th{text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1px solid var(--line)}
+table.ltbl td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
 table.ltbl tr:last-child td{border-bottom:0}
-.rk{font-family:var(--mono);color:var(--teal);font-weight:700;width:30px}
+.rk{font-family:var(--mono);color:var(--accent);font-weight:600;width:28px}
 .co{font-weight:600}
 .co small{display:block;color:var(--faint);font-weight:400;font-size:12px;margin-top:1px}
-.range{font-family:var(--mono);color:var(--fg);font-weight:600;white-space:nowrap}
-.mode{font-size:12.5px;color:var(--muted)}
-.badge{font-size:11px;color:var(--faint);border:1px solid var(--border2);border-radius:6px;padding:2px 7px;white-space:nowrap}
+.range{font-family:var(--mono);color:var(--ink);font-weight:600;white-space:nowrap}
+.badge{font-size:11px;color:var(--muted);border:1px solid var(--line2);border-radius:6px;padding:2px 7px;white-space:nowrap}
 .locked{position:relative}
-.locked .ltbl{filter:blur(6.5px);opacity:.5;user-select:none;pointer-events:none}
-.lock-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;padding:24px;background:linear-gradient(180deg,rgba(16,19,25,.15),rgba(16,19,25,.9))}
-.lock-badge{width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:grid;place-items:center}
-.lock-badge svg{width:20px;height:20px;color:var(--teal)}
-.lock-ov h4{font-size:18px;font-weight:700}
-.lock-ov p{font-size:13.5px;color:var(--muted);max-width:38ch}
-.pnote{text-align:center;font-size:12.5px;color:var(--faint);margin-top:14px}
+.locked .ltbl{filter:blur(6px);opacity:.6;user-select:none;pointer-events:none}
+.lock-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:11px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(255,255,255,.93))}
+.lock-ov h4{font-family:var(--serif);font-size:22px;font-weight:400}
+.lock-ov p{font-size:13.5px;color:var(--muted);max-width:32em}
+.pnote{font-size:12.5px;color:var(--faint);margin-top:13px}
 
-.founder{max-width:640px;margin:0 auto;text-align:center}
-.founder blockquote{font-size:clamp(18px,2.8vw,22px);line-height:1.5;letter-spacing:-.01em;font-weight:500;color:var(--fg)}
-.founder blockquote .q{color:var(--accent)}
-.founder .sig{margin-top:20px;color:var(--muted);font-size:14px}
-.founder .sig b{color:var(--fg)}
+.story{font-size:18px;line-height:1.75;color:var(--muted);display:flex;flex-direction:column;gap:15px}
+.story b{color:var(--ink);font-weight:600}
+.story .last{color:var(--ink)}
+.sig{margin-top:20px;font-size:14px;color:var(--muted)}
+.sig b{color:var(--ink)}
 
-.faq{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-details{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);overflow:hidden}
-details[open]{border-color:var(--border2)}
-summary{list-style:none;cursor:pointer;padding:17px 19px;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.faq{display:flex;flex-direction:column;gap:9px;margin-top:24px}
+details{border:1px solid var(--line);border-radius:var(--rs);background:var(--surface);overflow:hidden}
+details[open]{border-color:var(--line2)}
+summary{list-style:none;cursor:pointer;padding:15px 17px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;gap:12px}
 summary::-webkit-details-marker{display:none}
-summary .chev{width:18px;height:18px;color:var(--faint);transition:.2s;flex:0 0 auto}
-details[open] summary .chev{transform:rotate(180deg);color:var(--accent)}
-details .ans{padding:0 19px 18px;color:var(--muted);font-size:14.5px}
+summary .pm{color:var(--accent);font-weight:400;font-size:20px;line-height:1}
+details[open] summary .pm{transform:rotate(45deg)}
+.ans{padding:0 17px 16px;color:var(--muted);font-size:14.5px}
 
-.final{text-align:center}
-footer{border-top:1px solid var(--border);padding:38px 0;color:var(--faint);font-size:13px}
-.foot-in{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
-.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.final .stitle{margin-bottom:8px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--faint);font-size:13px}
+.foot-in{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap}
 .foot-links a{color:var(--faint);text-decoration:none}
 .foot-links a:hover{color:var(--muted)}
 
-.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.rise,.eyebrow .pulse{animation:none}}
+.fade{animation:fade .6s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap nav-in">
-    <div class="brand">
-      <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
-      Scatto
-    </div>
-    <a href="#prendila" class="nav-cta">Scarica la classifica</a>
+  <div class="nav-in">
+    <div class="brand">scatto<b>.</b></div>
+    <a href="#prendila" class="nav-link">Prendi la lista</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="wrap rise" id="prendila">
-    <span class="eyebrow"><span class="pulse"></span> Classifica gratuita · Aggiornata giugno 2026</span>
-    <h1>Le 50 aziende che pagano <span class="g">meglio</span> gli sviluppatori — e assumono dall'Italia.</h1>
-    <p class="lede">Ruoli, range di stipendio reali e chi cerca dev <b style="color:var(--fg)">anche in full remote dall'estero</b>, restando dove sei. Niente teoria: solo la lista, ordinata da chi paga di più.</p>
+  <div class="wrap fade" id="prendila">
+    <div class="eyebrow">Lista gratuita · sviluppatori in Italia</div>
+    <h1>Quanto pagano, <em>davvero</em>, gli sviluppatori?</h1>
+    <p class="lede">Ho messo insieme le 50 aziende che pagano meglio e assumono anche dall'Italia, in full remote. Dimmi dove mandartela e te la passo. Gratis, senza fronzoli.</p>
 
     <form class="form js-form" novalidate>
-      <div class="flabel">Dove vuoi ricevere la classifica completa?</div>
+      <div class="flabel">Dove te la mando?</div>
       <div class="field">
         <input type="email" name="email" placeholder="la-tua@email.it" required autocomplete="email" />
         <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button class="btn" type="submit">
-          Mandamela gratis
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </button>
+        <button class="btn" type="submit">Mandamela</button>
       </div>
-      <label class="consent"><input type="checkbox" name="consent" required /> <span>Accetto la <a href="/privacy.html">privacy policy</a> e di ricevere la classifica via email.</span></label>
-      <label class="consent"><input type="checkbox" name="updates" /> <span>Avvisami quando aggiorno la classifica o trovo nuove aziende (facoltativo).</span></label>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>Accetto la <a href="/privacy.html">privacy policy</a> e di ricevere la lista via email.</span></label>
+      <label class="consent"><input type="checkbox" name="updates" /> <span>Fammi sapere quando aggiorni la lista (facoltativo).</span></label>
       <div class="msg" role="status"></div>
+      <p class="reassure">Niente spam. La tua email resta tua, e te ne vai quando vuoi.</p>
     </form>
-
-    <div class="trust-row">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Gratis, davvero</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Dati raccolti a mano</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> I tuoi dati non vengono venduti</span>
-    </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Anteprima</span>
-      <h2>La classifica, dal più generoso in giù</h2>
-      <p>Le prime quattro sono qui sotto, in chiaro. Le altre 46 te le mando complete — con nome azienda e link per candidarti.</p>
-    </div>
+    <div class="stitle">Un assaggio</div>
+    <p class="ssub">Le prime quattro sono qui. Le altre 46 — con nome e link per candidarti — te le mando.</p>
 
     <div class="preview">
-      <div class="ptop">
-        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg> Top 50 · ordinata per stipendio</span>
-        <span>aggiornata a mano</span>
-      </div>
+      <div class="ptop"><span><b>Top 50</b> · ordinata per stipendio</span><span>aggiornata a mano</span></div>
       <table class="ltbl">
-        <thead><tr><th>#</th><th>Azienda</th><th>Ruolo</th><th>Range annuo</th><th>Modalità</th></tr></thead>
+        <thead><tr><th>#</th><th>Azienda</th><th>Ruolo</th><th>Range annuo</th><th>Come</th></tr></thead>
         <tbody>
-          <tr><td class="rk">01</td><td class="co">Dev tools <small>USA</small></td><td>Senior Backend</td><td class="range">90–120k $</td><td class="mode"><span class="badge">Full remote da IT</span></td></tr>
-          <tr><td class="rk">02</td><td class="co">Product studio <small>USA</small></td><td>Senior Frontend</td><td class="range">75–100k $</td><td class="mode"><span class="badge">Contractor</span></td></tr>
-          <tr><td class="rk">03</td><td class="co">Infra company <small>EU</small></td><td>DevOps / SRE</td><td class="range">72–90k €</td><td class="mode"><span class="badge">Full remote</span></td></tr>
-          <tr><td class="rk">04</td><td class="co">Scale-up fintech <small>Londra</small></td><td>Backend Engineer</td><td class="range">65–85k €</td><td class="mode"><span class="badge">Full remote da IT</span></td></tr>
+          <tr><td class="rk">01</td><td class="co">Dev tools <small>USA</small></td><td>Senior Backend</td><td class="range">90–120k $</td><td><span class="badge">Remote da IT</span></td></tr>
+          <tr><td class="rk">02</td><td class="co">Product studio <small>USA</small></td><td>Senior Frontend</td><td class="range">75–100k $</td><td><span class="badge">Contractor</span></td></tr>
+          <tr><td class="rk">03</td><td class="co">Infra company <small>EU</small></td><td>DevOps / SRE</td><td class="range">72–90k €</td><td><span class="badge">Full remote</span></td></tr>
+          <tr><td class="rk">04</td><td class="co">Fintech <small>Londra</small></td><td>Backend Engineer</td><td class="range">65–85k €</td><td><span class="badge">Remote da IT</span></td></tr>
         </tbody>
       </table>
-
       <div class="locked">
         <table class="ltbl" aria-hidden="true">
           <tbody>
-            <tr><td class="rk">05</td><td class="co">SaaS B2B · Berlino</td><td>Fullstack · Mid</td><td class="range">52–68k €</td><td class="mode"><span class="badge">Full remote</span></td></tr>
-            <tr><td class="rk">06</td><td class="co">Scale-up · Amsterdam</td><td>Data Engineer</td><td class="range">60–80k €</td><td class="mode"><span class="badge">Hybrid/remote</span></td></tr>
-            <tr><td class="rk">07</td><td class="co">Mobile-first · Nordics</td><td>iOS Engineer</td><td class="range">58–75k €</td><td class="mode"><span class="badge">Full remote</span></td></tr>
-            <tr><td class="rk">08</td><td class="co">Agenzia prodotto · IT</td><td>Fullstack · Senior</td><td class="range">50–65k €</td><td class="mode"><span class="badge">Remote IT</span></td></tr>
+            <tr><td class="rk">05</td><td class="co">SaaS B2B · Berlino</td><td>Fullstack · Mid</td><td class="range">52–68k €</td><td><span class="badge">Full remote</span></td></tr>
+            <tr><td class="rk">06</td><td class="co">Scale-up · Amsterdam</td><td>Data Engineer</td><td class="range">60–80k €</td><td><span class="badge">Hybrid</span></td></tr>
+            <tr><td class="rk">07</td><td class="co">Mobile · Nordics</td><td>iOS Engineer</td><td class="range">58–75k €</td><td><span class="badge">Full remote</span></td></tr>
+            <tr><td class="rk">08</td><td class="co">Agenzia · IT</td><td>Fullstack · Senior</td><td class="range">50–65k €</td><td><span class="badge">Remote IT</span></td></tr>
           </tbody>
         </table>
         <div class="lock-ov">
-          <div class="lock-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-          <h4>Vedi tutte e 50, gratis</h4>
-          <p>Nome dell'azienda, range aggiornato e link diretto per candidarti. Te la mando subito via email.</p>
-          <button class="btn js-scroll" type="button">
-            Voglio la classifica completa
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-          </button>
+          <h4>Vuoi vederle tutte?</h4>
+          <p>Nome dell'azienda, range aggiornato e link per candidarti. Te le mando subito.</p>
+          <button class="btn js-scroll" type="button">Sì, mandamele</button>
         </div>
       </div>
     </div>
-    <p class="pnote">Range lordi annui indicativi, verificati uno per uno. I nomi e i link sono nella versione completa.</p>
+    <p class="pnote">Cifre lorde annue indicative, controllate una per una. Dove un dato è incerto, lo scrivo.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="shead">
-      <span class="eyebrow">Cosa c'è dentro</span>
-      <h2>Non è la solita lista copiata da Google</h2>
+    <div class="stitle">Perché te la regalo</div>
+    <div class="story" style="margin-top:20px">
+      <p>Sarò onesto: non sono un filantropo. Per un paio d'anni ho lavorato a <b>[1.400€ al mese]</b> pensando fosse normale, finché ho scoperto che uno con il mio stesso ruolo, a trenta chilometri da me, ne prendeva <b>il doppio</b> — da remoto, per un'azienda estera.</p>
+      <p>Non era più bravo. Sapeva solo una cosa che io non sapevo: chi paga davvero. Mi sono rotto le scatole del fatto che certi numeri li conosca solo chi è già nel giro.</p>
+      <p class="last">Così ho iniziato a segnarmeli. Questa lista è quel file. La giro gratis perché copiarla non mi costa niente, e a me sarebbe servita due anni fa.</p>
     </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
-        <h3>Ordinata per stipendio</h3>
-        <p>50 aziende dal range più alto al più basso. Vedi subito chi paga davvero e quanto, senza scavare.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg></div>
-        <h3>Assumono dall'Italia</h3>
-        <p>Solo realtà che prendono persone in full remote o contratto dall'Italia. Niente "trasferisciti a San Francisco".</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></div>
-        <h3>Verificata a mano</h3>
-        <p>Ogni riga controllata su annunci e fonti reali. Dove un dato è incerto, c'è scritto. Zero numeri gonfiati.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap founder">
-    <span class="eyebrow">Chi l'ha messa insieme</span>
-    <blockquote style="margin-top:18px"><span class="q">“</span>Sono uno sviluppatore italiano. Ho visto troppi colleghi bravi accettare stipendi bassi solo perché nessuno gli aveva detto quanto potevano chiedere. Così ho iniziato a segnarmi chi paga davvero e assume da qui. Questa classifica è quella lista — la condivido gratis perché a me sarebbe servita.<span class="q">”</span></blockquote>
     <p class="sig">— <b>[Il tuo nome]</b></p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="shead"><span class="eyebrow">Domande</span><h2>Le cose che ti stai chiedendo</h2></div>
+    <div class="stitle">Due cose al volo</div>
     <div class="faq">
       <details>
-        <summary>È davvero gratis?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="ans">Sì, tutte e 50. Ti chiedo l'email solo per mandartela e perché aggiorno la lista quando trovo aziende nuove. Niente carta di credito, niente costi nascosti.</div>
+        <summary>È gratis sul serio?<span class="pm">+</span></summary>
+        <div class="ans">Sì, tutte e 50. L'email mi serve solo per mandartela. Niente carta, niente costi.</div>
       </details>
       <details>
-        <summary>Da dove arrivano i dati?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="ans">Da annunci reali, job board internazionali, segnalazioni e dalla mia rete. Ogni cifra è un range indicativo, verificato per quanto possibile. Dove c'è incertezza, lo scrivo.</div>
+        <summary>Da dove arrivano i numeri?<span class="pm">+</span></summary>
+        <div class="ans">Da annunci reali, posizioni aperte e dalla mia esperienza. Sono range indicativi, controllati prima di metterli.</div>
       </details>
       <details>
-        <summary>Davvero pagano così tanto restando in Italia?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="ans">Le cifre più alte sono ruoli senior o contratti con aziende estere: è il top del mercato, non la media. Ma esistono e assumono dall'Italia. La classifica copre tutti i livelli, dal mid in su.</div>
-      </details>
-      <details>
-        <summary>Come la ricevo?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-        <div class="ans">Inserisci l'email qui sopra e ti arriva subito (controlla anche lo spam). Puoi toglierti dalla lista quando vuoi, con un click.</div>
+        <summary>E se voglio togliermi?<span class="pm">+</span></summary>
+        <div class="ans">Un click e sei fuori. La tua email non finisce da nessun'altra parte.</div>
       </details>
     </div>
   </div>
 </section>
 
 <section class="final">
-  <div class="wrap rise">
-    <div class="shead" style="margin-bottom:24px">
-      <h2>Prenditi la classifica.</h2>
-      <p>Dieci secondi adesso, contro mesi a chiederti se sei sottopagato.</p>
-    </div>
+  <div class="wrap fade">
+    <div class="stitle">Allora, te la mando?</div>
+    <p class="ssub">Dieci secondi adesso. Poi sai esattamente quanto puoi chiedere.</p>
     <form class="form js-form" novalidate>
       <div class="field">
         <input type="email" name="email" placeholder="la-tua@email.it" required autocomplete="email" />
         <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button class="btn" type="submit">Mandamela gratis
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </button>
+        <button class="btn" type="submit">Mandamela</button>
       </div>
-      <label class="consent"><input type="checkbox" name="consent" required /> <span>Accetto la <a href="/privacy.html">privacy policy</a> e di ricevere la classifica via email.</span></label>
-      <label class="consent"><input type="checkbox" name="updates" /> <span>Avvisami quando aggiorno la classifica (facoltativo).</span></label>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>Accetto la <a href="/privacy.html">privacy policy</a> e di ricevere la lista via email.</span></label>
+      <label class="consent"><input type="checkbox" name="updates" /> <span>Fammi sapere quando aggiorni la lista (facoltativo).</span></label>
       <div class="msg" role="status"></div>
     </form>
   </div>
@@ -301,11 +227,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;color:var(--faint);font
 
 <footer>
   <div class="wrap foot-in">
-    <div class="brand" style="font-size:15px"><span class="dot" style="width:18px;height:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span> Scatto</div>
+    <div class="brand" style="font-size:18px">scatto<b>.</b></div>
     <div class="foot-links">
       <a href="/privacy.html">Privacy</a>
       <a href="/unsubscribe.html">Rimuovi la mia email</a>
-      <a href="mailto:ciao@tuodominio.it">Contatti</a>
+      <a href="mailto:ciao@tuodominio.it">Scrivimi</a>
     </div>
     <div>© 2026</div>
   </div>
@@ -325,31 +251,25 @@ footer{border-top:1px solid var(--border);padding:38px 0;color:var(--faint);font
       var hp = form.querySelector('input[name=website]').value;
       if (hp) return;
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { show('err','Controlla l\'indirizzo email.'); return; }
-      if (consent && !consent.checked) { show('err','Spunta il consenso alla privacy per ricevere la classifica.'); return; }
-      var label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Invio in corso…';
+      if (consent && !consent.checked) { show('err','Spunta il consenso per ricevere la lista.'); return; }
+      var label = btn.textContent; btn.disabled = true; btn.textContent = 'Invio…';
       try {
         var r = await fetch('/api/subscribe', {
           method:'POST', headers:{'Accept':'application/json','Content-Type':'application/json'},
           body: JSON.stringify({ email: email, updates: !!(updates && updates.checked) })
         });
-        if (r.ok) { form.reset(); show('ok','Fatto. Tra poco ricevi la classifica completa via email — controlla anche lo spam.'); }
+        if (r.ok) { form.reset(); show('ok','Fatto. Tra poco ti arriva la lista — dai un occhio anche allo spam.'); }
         else { show('err','Qualcosa è andato storto. Riprova tra poco.'); }
       } catch(err) { show('err','Errore di rete. Riprova.'); }
-      finally { btn.disabled = false; btn.innerHTML = label; }
+      finally { btn.disabled = false; btn.textContent = label; }
     });
-    function show(type, text){
-      var icon = type === 'ok'
-        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>'
-        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>';
-      msg.className = 'msg ' + type;
-      msg.innerHTML = icon + '<span>' + text + '</span>';
-    }
+    function show(type, text){ msg.className = 'msg ' + type; msg.textContent = text; }
   });
   document.querySelectorAll('.js-scroll').forEach(function(b){
     b.addEventListener('click', function(){
       var el = document.getElementById('prendila');
       if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
-      setTimeout(function(){ var i = document.querySelector('#prendila input[name=email]'); if(i) i.focus(); }, 500);
+      setTimeout(function(){ var i = document.querySelector('#prendila input[name=email]'); if(i) i.focus(); }, 450);
     });
   });
 })();
