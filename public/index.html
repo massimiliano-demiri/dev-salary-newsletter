@@ -3,69 +3,464 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stipendi Dev Italia — quanto guadagni davvero (e come scalare)</title>
-<meta name="description" content="Ogni settimana: chi assume sviluppatori in Italia, quanto paga davvero e i percorsi concreti per scalare lo stipendio restando in Italia. Niente fuffa da guru." />
+<title>Scatto — quanto vali davvero come sviluppatore in Italia</title>
+<meta name="description" content="Ogni settimana: le aziende che assumono sviluppatori, quanto pagano sul serio e come negoziare per arrivarci. Dati raccolti a mano, restando in Italia." />
+<meta property="og:title" content="Scatto — stipendi e carriere dev in Italia" />
+<meta property="og:description" content="Le aziende che pagano i dev in €/$ anche dall'Italia, i range reali e come candidarti. Una email a settimana." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-:root{--bg:#0b0b0f;--card:#15151c;--fg:#f4f4f6;--muted:#a0a0ad;--accent:#22c55e;--accent2:#0ea5e9;--ok:#22c55e;--err:#ef4444;--r:14px}
+:root{
+  --bg:#07080b; --bg2:#0b0d12; --surface:#101319; --surface2:#141821;
+  --border:#1c212b; --border2:#262d39;
+  --fg:#e8eaf0; --muted:#8b93a3; --faint:#5d6573;
+  --accent:#4f8cff; --accent-d:#3b74e6; --teal:#5eead4;
+  --r:16px; --rs:10px;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --max:1080px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px}
-.fade{opacity:0;transform:translateY(16px);animation:up .6s ease forwards}
-@keyframes up{to{opacity:1;transform:none}}
-header{padding:64px 0 32px;text-align:center}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.15;letter-spacing:-.02em}
-.sub{color:var(--muted);font-size:18px;margin:16px 0 28px}
-.form{display:flex;flex-direction:column;gap:10px;background:var(--card);padding:18px;border-radius:var(--r);border:1px solid #26262f}
-.form input[type=email]{padding:14px;border-radius:10px;border:1px solid #303039;background:#0e0e13;color:var(--fg);font-size:16px}
-.form input[type=email]:focus{outline:2px solid var(--accent)}
-.consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);text-align:left}
-.btn{padding:14px;border:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04130a;font-size:16px;font-weight:700;cursor:pointer;transition:transform .1s}
-.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.6;cursor:not-allowed}
-.micro{font-size:12px;color:var(--muted);text-align:center;margin-top:4px}
-.msg{display:none;padding:12px;border-radius:10px;font-size:14px}
-.msg.ok{display:block;background:rgba(34,197,94,.12);color:var(--ok);border:1px solid var(--ok)}
-.msg.err{display:block;background:rgba(239,68,68,.12);color:var(--err);border:1px solid var(--err)}
-.hp{position:absolute;left:-9999px;opacity:0}
-section{padding:40px 0;border-top:1px solid #1d1d25}
-h2{font-size:24px;margin-bottom:20px;letter-spacing:-.01em}
-.grid{display:grid;gap:16px}
-@media(min-width:640px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--card);border:1px solid #26262f;border-radius:var(--r);padding:20px}
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{color:var(--muted);font-size:14px}
-.step{display:flex;gap:14px;margin-bottom:16px}
-.num{flex:0 0 32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:700;color:#04130a}
-footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px}
-footer a{color:var(--muted)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg); color:var(--fg); line-height:1.6;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(1100px 600px at 50% -10%, rgba(79,140,255,.16), transparent 60%),
+    radial-gradient(800px 500px at 90% 10%, rgba(94,234,212,.06), transparent 55%);
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+a{color:inherit}
+.mono{font-family:var(--mono)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(7,8,11,.66);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.02em;font-size:18px}
+.brand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--teal));display:grid;place-items:center}
+.brand .dot svg{width:13px;height:13px;color:#04121f}
+.nav-cta{font-size:14px;font-weight:600;padding:9px 16px;border-radius:9px;background:var(--fg);color:#0a0c10;text-decoration:none;transition:.15s}
+.nav-cta:hover{opacity:.88}
+
+/* hero */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border2);background:var(--surface);padding:6px 13px;border-radius:999px}
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(94,234,212,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,234,212,.5)}70%{box-shadow:0 0 0 7px rgba(94,234,212,0)}100%{box-shadow:0 0 0 0 rgba(94,234,212,0)}}
+header.hero{padding:74px 0 56px;text-align:center}
+h1{font-size:clamp(33px,6.2vw,58px);line-height:1.06;letter-spacing:-.03em;font-weight:800;max-width:15ch;margin:22px auto 0}
+h1 .g{background:linear-gradient(120deg,var(--accent),var(--teal));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lede{color:var(--muted);font-size:clamp(16px,2.4vw,19px);max-width:54ch;margin:22px auto 0}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:18px;color:var(--faint);font-size:13px}
+.trust-row span{display:inline-flex;align-items:center;gap:6px}
+.trust-row svg{width:14px;height:14px;color:var(--teal)}
+
+/* form */
+.form{max-width:480px;margin:30px auto 0;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:18px;text-align:left;box-shadow:0 24px 60px -28px rgba(0,0,0,.7)}
+.field{display:flex;gap:9px}
+@media(max-width:520px){.field{flex-direction:column}}
+.field input[type=email]{flex:1;padding:14px 15px;border-radius:var(--rs);border:1px solid var(--border2);background:#0a0c11;color:var(--fg);font-size:16px;font-family:inherit;transition:.15s}
+.field input[type=email]::placeholder{color:var(--faint)}
+.field input[type=email]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,140,255,.18)}
+.btn{white-space:nowrap;padding:14px 22px;border:0;border-radius:var(--rs);background:linear-gradient(135deg,var(--accent),var(--accent-d));color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn svg{width:16px;height:16px}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(79,140,255,.7)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.45}
+.consent input{margin-top:3px;accent-color:var(--accent);width:15px;height:15px;flex:0 0 auto}
+.consent a{color:var(--muted);text-decoration:underline}
+.giftline{font-size:12.5px;color:var(--faint);margin-top:11px;display:flex;gap:7px;align-items:flex-start}
+.giftline svg{width:15px;height:15px;color:var(--teal);flex:0 0 auto;margin-top:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.msg{display:none;margin-top:12px;padding:12px 14px;border-radius:var(--rs);font-size:14px}
+.msg.ok{display:flex;gap:9px;align-items:center;background:rgba(94,234,212,.1);color:var(--teal);border:1px solid rgba(94,234,212,.4)}
+.msg.err{display:flex;gap:9px;align-items:center;background:rgba(255,107,107,.1);color:#ff8585;border:1px solid rgba(255,107,107,.4)}
+.msg svg{width:17px;height:17px;flex:0 0 auto}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--border)}
+.shead{max-width:62ch;margin:0 auto 40px;text-align:center}
+.shead h2{font-size:clamp(25px,4vw,36px);line-height:1.12;letter-spacing:-.025em;font-weight:800;margin-top:14px}
+.shead p{color:var(--muted);margin-top:14px;font-size:16.5px}
+
+/* cards grid */
+.grid{display:grid;gap:18px}
+@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px;transition:.18s}
+.card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.ico{width:42px;height:42px;border-radius:11px;background:var(--surface2);border:1px solid var(--border2);display:grid;place-items:center;margin-bottom:16px}
+.ico svg{width:21px;height:21px;color:var(--accent)}
+.card h3{font-size:17.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+
+/* locked list */
+.preview{max-width:760px;margin:0 auto;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.ptop{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.ptop .tag{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--fg)}
+.ptop .tag svg{width:15px;height:15px;color:var(--teal)}
+table.ltbl{width:100%;border-collapse:collapse;font-size:14px}
+table.ltbl th{text-align:left;padding:13px 18px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600;border-bottom:1px solid var(--border)}
+table.ltbl td{padding:15px 18px;border-bottom:1px solid var(--border);vertical-align:middle}
+table.ltbl tr:last-child td{border-bottom:0}
+.co{font-weight:600}
+.co small{display:block;color:var(--faint);font-weight:400;font-size:12px;margin-top:1px}
+.range{font-family:var(--mono);color:var(--teal);font-weight:600;white-space:nowrap}
+.mode{font-size:12.5px;color:var(--muted)}
+.badge{font-size:11px;color:var(--faint);border:1px solid var(--border2);border-radius:6px;padding:2px 7px}
+.locked{position:relative}
+.locked .ltbl{filter:blur(6.5px);opacity:.5;user-select:none;pointer-events:none}
+.lock-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;padding:24px;background:linear-gradient(180deg,rgba(16,19,25,.2),rgba(16,19,25,.86))}
+.lock-badge{width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:grid;place-items:center}
+.lock-badge svg{width:20px;height:20px;color:var(--teal)}
+.lock-ov h4{font-size:18px;font-weight:700}
+.lock-ov p{font-size:13.5px;color:var(--muted);max-width:34ch}
+.pnote{text-align:center;font-size:12.5px;color:var(--faint);margin-top:14px}
+
+/* sample issue */
+.issue{max-width:620px;margin:0 auto;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);overflow:hidden}
+.issue-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.issue-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.issue-bar .from{margin-left:10px;font-size:13px;color:var(--muted)}
+.issue-body{padding:22px}
+.issue-subj{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:16px}
+.issue-body h5{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px;font-weight:600}
+.issue-body ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.issue-body li{display:flex;gap:10px;font-size:14px;color:var(--muted)}
+.issue-body li svg{width:16px;height:16px;color:var(--teal);flex:0 0 auto;margin-top:3px}
+.issue-body b{color:var(--fg)}
+
+/* founder */
+.founder{max-width:640px;margin:0 auto;text-align:center}
+.founder blockquote{font-size:clamp(18px,2.8vw,22px);line-height:1.5;letter-spacing:-.01em;font-weight:500;color:var(--fg)}
+.founder blockquote .q{color:var(--accent)}
+.founder .sig{margin-top:20px;color:var(--muted);font-size:14px}
+.founder .sig b{color:var(--fg)}
+
+/* faq */
+.faq{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+details{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);overflow:hidden}
+details[open]{border-color:var(--border2)}
+summary{list-style:none;cursor:pointer;padding:17px 19px;font-weight:600;font-size:15.5px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary .chev{width:18px;height:18px;color:var(--faint);transition:.2s;flex:0 0 auto}
+details[open] summary .chev{transform:rotate(180deg);color:var(--accent)}
+details .ans{padding:0 19px 18px;color:var(--muted);font-size:14.5px}
+
+/* final cta */
+.final{text-align:center}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:38px 0;color:var(--faint);font-size:13px}
+.foot-in{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a{color:var(--faint);text-decoration:none}
+.foot-links a:hover{color:var(--muted)}
+
+/* entrance (CSS-only: contenuto sempre visibile anche senza JS) */
+.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rise,.eyebrow .pulse{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="fade">
-    <h1>Quanto guadagna davvero<br>uno sviluppatore in Italia?</h1>
-    <p class="sub">Ogni settimana ti dico <strong>chi assume, quanto paga sul serio</strong> e i percorsi concreti per scalare lo stipendio — anche verso i 4-5k — <strong>restando in Italia</strong>. Numeri veri, niente fuffa da guru.</p>
-    <form class="form" id="f">
-      <input type="email" name="email" id="email" placeholder="la-tua@email.it" required autocomplete="email" />
-      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-      <label class="consent"><input type="checkbox" id="consent" required /> <span>Acconsento a ricevere la newsletter e accetto la <a href="/privacy.html">privacy policy</a>.</span></label>
-      <button class="btn" type="submit" id="btn">Mandami la lista + iscrivimi</button>
-      <p class="micro">In regalo: le 10 aziende che assumono dev in remoto dall'Italia pagando in €/$. 1 email a settimana. Disiscriviti in 1 click.</p>
-      <div class="msg" id="msg"></div>
-    </form>
-  </header>
 
-  <section class="fade">
-    <h2>Se ti riconosci qui, sei nel posto giusto</h2>
-    <div class="grid grid-3">
-      <div class="card"><h3>"Mi offrono una RAL bassa"</h3><p>E non sai se è normale per il tuo livello o se ti stanno sottopagando.</p></div>
-      <div class="card"><h3>"Vorrei lavorare per l'estero"</h3><p>Stipendi in €/$ restando in Italia, ma non sai da dove partire.</p></div>
-      <div class="card"><h3>"I guru parlano di startup USA"</h3><p>A te serve cosa funziona davvero nel mercato italiano.</p></div>
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand">
+      <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+      Scatto
     </div>
-  </section>
+    <a href="#iscriviti" class="nav-cta">Iscriviti</a>
+  </div>
+</nav>
 
-  <section class="fade">
-    <h2>Cosa ricevi ogni settimana</h2>
+<header class="hero">
+  <div class="wrap rise" id="iscriviti">
+    <span class="eyebrow"><span class="pulse"></span> Stipendi &amp; carriere dev · Italia</span>
+    <h1>Scopri quanto <span class="g">vali davvero</span> come sviluppatore in Italia.</h1>
+    <p class="lede">Ogni settimana ti mando le aziende che assumono, <b style="color:var(--fg)">quanto pagano sul serio</b> e come negoziare per arrivarci. Dati raccolti a mano. Nessuna promessa da 10k facili.</p>
+
+    <form class="form js-form" novalidate>
+      <div class="field">
+        <input type="email" name="email" placeholder="la-tua@email.it" required autocomplete="email" />
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn" type="submit">
+          Sblocca la lista
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>Acconsento a ricevere la newsletter e accetto la <a href="/privacy.html">privacy policy</a>.</span></label>
+      <p class="giftline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7S9 2 6.5 4.5 9 7 12 7zM12 7s3-5 5.5-2.5S15 7 12 7z"/></svg>
+        <span>In regalo all'iscrizione: <b style="color:var(--muted)">10 aziende che assumono dev in remoto dall'Italia pagando in €/$</b>.</span>
+      </p>
+      <div class="msg" role="status"></div>
+    </form>
+
+    <div class="trust-row">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Niente spam</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Una email a settimana</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Disiscrizione in un click</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Il problema</span>
+      <h2>Il mercato è opaco. A rimetterci sei tu.</h2>
+      <p>Nessuno ti dice quanto puoi chiedere. Così accetti meno di quanto vali — e te ne accorgi solo dopo.</p>
+    </div>
     <div class="grid grid-3">
-      <div class="card"><h3>💼 Chi assume</h3><p>Aziende e offerte per dev, con range di stipendio reale quando disponibile.</p></div>
-      <div class="card"><h3>📈 1 percorso concreto</h3><p>Come scalare: passare all
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 18l-9.5-9.5-5 5L1 6"/><path d="M17 18h6v-6"/></svg></div>
+        <h3>Non sai quanto chiedere</h3>
+        <p>Accetti la prima offerta perché non hai un riferimento. Poi scopri che un collega allo stesso livello prende il 30% in più.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg></div>
+        <h3>L'estero sembra irraggiungibile</h3>
+        <p>Le aziende che pagano in €/$ assumono dall'Italia. Il problema non sei tu: è solo trovarle e sapere come candidarti.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Online è pieno di fuffa</h3>
+        <p>Corsi da 2.000€ e guru che promettono ricchezza. Qui trovi solo numeri verificabili e passi concreti. Se non ho niente di valore, non scrivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Anteprima</span>
+      <h2>Le aziende che pagano i dev in €/$ — anche dall'Italia</h2>
+      <p>Un estratto della lista che ricevi appena ti iscrivi. Le prime due righe sono in chiaro. Le altre, sbloccale.</p>
+    </div>
+
+    <div class="preview">
+      <div class="ptop">
+        <span class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> Lista · Giugno 2026</span>
+        <span>10 aziende · aggiornata ogni settimana</span>
+      </div>
+      <table class="ltbl">
+        <thead><tr><th>Azienda</th><th>Ruolo</th><th>Range annuo</th><th>Modalità</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="co">Scale-up fintech <small>Londra (UK)</small></td>
+            <td>Backend Engineer</td>
+            <td class="range">65–85k €</td>
+            <td class="mode"><span class="badge">Full remote da IT</span></td>
+          </tr>
+          <tr>
+            <td class="co">SaaS B2B <small>Berlino (DE)</small></td>
+            <td>Fullstack · Mid</td>
+            <td class="range">52–68k €</td>
+            <td class="mode"><span class="badge">Full remote da IT</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="locked">
+        <table class="ltbl" aria-hidden="true">
+          <tbody>
+            <tr><td class="co">Product studio · USA</td><td>Senior Frontend</td><td class="range">70–95k $</td><td class="mode"><span class="badge">Contractor</span></td></tr>
+            <tr><td class="co">Infra company · EU</td><td>DevOps / SRE</td><td class="range">72–90k €</td><td class="mode"><span class="badge">Full remote</span></td></tr>
+            <tr><td class="co">Scale-up · Amsterdam</td><td>Data Engineer</td><td class="range">66–88k €</td><td class="mode"><span class="badge">Hybrid/remote</span></td></tr>
+            <tr><td class="co">Dev tools · USA</td><td>Senior Backend</td><td class="range">90–120k $</td><td class="mode"><span class="badge">Full remote</span></td></tr>
+          </tbody>
+        </table>
+        <div class="lock-ov">
+          <div class="lock-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h4>Sblocca le 10 aziende complete</h4>
+          <p>Nomi, range aggiornati e link diretto per candidarti. Gratis, ti arriva via email.</p>
+          <button class="btn js-scroll" type="button">
+            Voglio la lista
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="pnote">Range lordi annui indicativi, verificati per ogni edizione. Nomi e link nella newsletter.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Ogni settimana</span>
+      <h2>Cinque minuti che ti fanno guadagnare di più</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+        <h3>Chi assume davvero</h3>
+        <p>5–10 posizioni selezionate a mano, con range di stipendio reale e il link diretto per candidarti.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></div>
+        <h3>Una mossa di carriera</h3>
+        <p>Un percorso concreto a settimana: negoziare la RAL, passare al remote estero, scegliere lo stack che paga.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.3-.6-.6-2.3z"/></svg></div>
+        <h3>Una risorsa che vale</h3>
+        <p>Un corso, una certificazione o uno strumento. Solo se lo userei io. Zero marchette, zero link a caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Trasparenza</span>
+      <h2>Ecco com'è fatta un'edizione</h2>
+      <p>Niente muri di testo. Vai dritto al punto, applichi, chiudi.</p>
+    </div>
+    <div class="issue">
+      <div class="issue-bar">
+        <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+        <span class="from">Scatto · ricevuta poco fa</span>
+      </div>
+      <div class="issue-body">
+        <div class="issue-subj">3 aziende che pagano i senior 80k+ (e una trappola da evitare)</div>
+        <h5>Chi assume questa settimana</h5>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Backend (Go), scale-up fintech UK</b> — 75–90k €, full remote. Cercano chi ha gestito sistemi ad alto traffico.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Fullstack, product studio USA</b> — 80–100k $ come contractor. Colloquio tecnico tosto, ma processo veloce.</span></li>
+        </ul>
+        <h5>La mossa della settimana</h5>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Come rispondere a "<b>quali sono le tue aspettative economiche?</b>" senza svenderti — lo script esatto, parola per parola.</span></li>
+        </ul>
+        <h5>La trappola</h5>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Quel contratto "<b>da 100k</b>" che in realtà ti lascia in mano molto meno: i 3 numeri da controllare prima di firmare.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap founder">
+    <span class="eyebrow">Chi c'è dietro</span>
+    <blockquote style="margin-top:18px"><span class="q">“</span>Sono uno sviluppatore italiano, non un guru. Ho visto troppi colleghi bravi accettare stipendi bassi solo perché nessuno gli aveva detto quanto potevano chiedere. Questa è la newsletter che avrei voluto ricevere io: numeri concreti, raccolti a mano, e nessuno che prova a vendermi un corso da 2.000 euro.<span class="q">”</span></blockquote>
+    <p class="sig">— <b>[Il tuo nome]</b>, founder di Scatto</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="eyebrow">Domande</span><h2>Le cose che ti stai chiedendo</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Davvero si arriva a 5.000€ al mese in Italia?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="ans">È possibile, ma è il top 5–10% del mercato: remote per aziende estere, freelance con clienti esteri, ruoli senior. Non ti prometto numeri facili. Ti mostro i percorsi reali e i numeri veri, così decidi tu.</div>
+      </details>
+      <details>
+        <summary>Da dove arrivano i dati?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="ans">Da annunci reali, job board internazionali, segnalazioni e dalla mia rete. Ogni cifra è un range indicativo, verificato per quanto possibile prima di pubblicarlo. Dove c'è incertezza, lo scrivo.</div>
+      </details>
+      <details>
+        <summary>Quanto costa?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="ans">La newsletter è gratuita. In futuro ci sarà una versione premium opzionale (offerte selezionate, archivio), ma il valore principale resta gratis.</div>
+      </details>
+      <details>
+        <summary>Ogni quanto scrivi?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="ans">Una volta a settimana, sempre lo stesso giorno. Se una settimana non ho niente di utile, salto: meglio il silenzio che riempirti la casella di niente.</div>
+      </details>
+      <details>
+        <summary>Per chi è?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="ans">Sviluppatori junior, mid e senior in Italia che vogliono guadagnare di più — restando qui o aprendosi al remote estero.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap rise">
+    <div class="shead" style="margin-bottom:24px">
+      <h2>Inizia a sapere quanto vali.</h2>
+      <p>Iscriviti e ricevi subito la lista delle 10 aziende. Te ne vai quando vuoi.</p>
+    </div>
+    <form class="form js-form" novalidate>
+      <div class="field">
+        <input type="email" name="email" placeholder="la-tua@email.it" required autocomplete="email" />
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn" type="submit">Sblocca la lista
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <label class="consent"><input type="checkbox" name="consent" required /> <span>Acconsento a ricevere la newsletter e accetto la <a href="/privacy.html">privacy policy</a>.</span></label>
+      <div class="msg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand" style="font-size:15px"><span class="dot" style="width:18px;height:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span> Scatto</div>
+    <div class="foot-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/unsubscribe.html">Disiscriviti</a>
+      <a href="mailto:ciao@tuodominio.it">Contatti</a>
+    </div>
+    <div>© 2026 Scatto</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // submit di tutti i form
+  document.querySelectorAll('.js-form').forEach(function(form){
+    var msg = form.querySelector('.msg');
+    var btn = form.querySelector('.btn');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      msg.className = 'msg';
+      var email = form.querySelector('input[name=email]').value.trim();
+      var consent = form.querySelector('input[name=consent]');
+      var hp = form.querySelector('input[name=website]').value;
+      if (hp) return; // honeypot: i bot lo compilano
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { show('err','Controlla l\'indirizzo email.'); return; }
+      if (consent && !consent.checked) { show('err','Spunta il consenso alla privacy per continuare.'); return; }
+      var label = btn.innerHTML; btn.disabled = true; btn.textContent = 'Invio in corso…';
+      try {
+        var r = await fetch('/api/subscribe', {
+          method:'POST',
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body: JSON.stringify({ email: email })
+        });
+        if (r.ok) { form.reset(); show('ok','Fatto. Tra poco ricevi la lista via email — controlla anche lo spam.'); }
+        else { show('err','Qualcosa è andato storto. Riprova tra poco.'); }
+      } catch(err) { show('err','Errore di rete. Riprova.'); }
+      finally { btn.disabled = false; btn.innerHTML = label; }
+    });
+    function show(type, text){
+      var icon = type === 'ok'
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>';
+      msg.className = 'msg ' + type;
+      msg.innerHTML = icon + '<span>' + text + '</span>';
+    }
+  });
+  // bottone "Voglio la lista" → porta al form in cima e mette il focus
+  document.querySelectorAll('.js-scroll').forEach(function(b){
+    b.addEventListener('click', function(){
+      var el = document.getElementById('iscriviti');
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      setTimeout(function(){ var i = document.querySelector('#iscriviti input[name=email]'); if(i) i.focus(); }, 500);
+    });
+  });
+})();
+</script>
+</body>
+</html>
