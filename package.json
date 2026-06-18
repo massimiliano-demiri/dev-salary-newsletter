@@ -1,0 +1,9 @@
+{
+  "name": "dev-salary-newsletter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Newsletter: stipendi e carriere per sviluppatori in Italia",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}
